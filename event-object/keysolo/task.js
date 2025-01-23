@@ -17,8 +17,16 @@ class Game {
   }
 
   registerEvents() {
+    document.addEventListener('keydown', (event) => {
+      if (event.key === this.currentSymbol.textContent){
+        this.success()
+      } else {
+        this.fail()
+      }
+    })
     /*
       TODO:
+
       Написать обработчик события, который откликается
       на каждый введённый символ.
       В случае правильного ввода символа вызываем this.success()
@@ -91,4 +99,3 @@ class Game {
 }
 
 new Game(document.getElementById('game'))
-
